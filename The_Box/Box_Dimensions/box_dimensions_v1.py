@@ -1,12 +1,19 @@
-# program running, if it goes as expected the program should work for integer inputs and crash for float or string
-# inputs or empty string inputs. The program also shouldn't reiterate itself asking the user for input or display an
-# error message (since the inputs here wouldn't). Also the information such as the dimensions of the boxes are stored
-# in their individual variables.
+# box_dimension function 1.0 should crash for invalid values (such as strings or floats) and display no other output
+# for out of bound values (-1 or 101). It also shouldn't reiterate the lines of code within the function.
 
-height = int(input('enter height'))
 
-width = int(input('enter width'))
+def box_dimension(message):
+    answer = int(input(message))
+    if 5 <= answer <= 100:
+        return answer
 
-depth = int(input('enter depth'))
 
-print('this is {} cm tall, {} cm wide and {} cm thick'.format(height, width, depth))
+# the box_dimension function being tested
+
+height = box_dimension('enter box\'s height in cm')
+width = box_dimension('enter box\'s width in cm')
+depth = box_dimension('enter box\'s depth in cm')
+
+# the box's dimensions being output
+
+print('the box is {} cm tall, {} cm wide and {} cm thick')
