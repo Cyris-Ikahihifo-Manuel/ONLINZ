@@ -1,4 +1,4 @@
-# box_dimension function 1.0 shouldn't crash for invalid values such as floats or strings and instead display the
+# box_dimension function 2.0 shouldn't crash for invalid values such as floats or strings and instead display the
 # error_message parameter. It should also display the error_message parameter for out of bound values such as
 # numbers less than 5 or more than 100. The function should also reiterate itself until the user has input an integer
 # equal to or more than 5 and equal to or less than 100.
