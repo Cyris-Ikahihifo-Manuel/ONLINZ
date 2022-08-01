@@ -2,18 +2,17 @@
 
 import random
 
-# box_volume function 1.0 has three parameters h, w and d. These parameters are the abbreviation of the box's dimensions
+# box_volume function 2.0 has three parameters h, w and d. These parameters are the abbreviation of the box's dimensions
 # that were asked by us from my superiors in ONLINZ. In the box_volume function it should calculate the volume of the
 # customer's box by multiplying the box's height, width and depth and then return that value. In the complete program,
 # the box's dimensions are collected from the customer who enters the box's dimensions.
 
 
 def box_volume(h, w, d):
-    volume = h * w * d
-    return volume
+    return h * w * d
 
 
-# program being tested
+# program being tested, if it goes
 
 height = random.randint(5, 100)
 width = random.randint(5, 100)
