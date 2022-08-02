@@ -2,21 +2,21 @@
 
 import random
 
-# box_volume function 1.0 has three parameters h, w and d. These parameters are the abbreviation of the box's dimensions
-# that were asked by us from my superiors in ONLINZ. In the box_volume function it should calculate the volume of the
-# customer's box by multiplying the box's height, width and depth and then return that value. In the complete program,
-# the box's dimensions are collected from the customer who enters the box's dimensions.
+# box_volume function 1.0 has three parameters height, width and depth. In the box_volume function it should calculate
+# the volume of the customer's box by multiplying the box's height, width and depth, store the volume of the box in a
+# variable called volume and then return volume. The import random module is there because in the complete program,
+# the box's dimensions are collected from the customer who enters their box's dimensions.
 
 
-def box_volume(h, w, d):
-    volume = h * w * d
+def box_volume(height, width, depth):
+    volume = height * width * depth
     return volume
 
 
 # program being tested
 
-height = random.randint(5, 100)
-width = random.randint(5, 100)
-depth = random.randint(5, 100)
+h = random.randint(5, 100)
+w = random.randint(5, 100)
+d = random.randint(5, 100)
 print('this box is {}cm tall, {}cm wide and {}cm thick. '
-      'This means that the volume of the box is {}^3 cm.'.format(height, width, depth, box_volume(height, width, depth)))
+      'This means that the volume of the box is {}^3 cm.'.format(h, w, d, box_volume(h, w, d)))
