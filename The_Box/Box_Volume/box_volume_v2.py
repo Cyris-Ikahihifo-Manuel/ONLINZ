@@ -1,6 +1,6 @@
 # importing random module to randomise values
 
-import random
+from random import randint
 
 # box_volume function 2.0 has three parameters h, w and d. These parameters are the abbreviation of the box's dimensions
 # that were asked by us from my superiors in ONLINZ. In the box_volume function it should calculate the volume of the
@@ -14,11 +14,8 @@ def box_volume(h, w, d):
 
 # program being tested
 
-height = random.randint(5, 100)
-width = random.randint(5, 100)
-depth = random.randint(5, 100)
-print('this box is {}cm tall, {}cm wide and {}cm thick. '
-      'This means that the volume of the box is {}^3 cm.'.format(height, width, depth, box_volume(height, width, depth)))
-
+height = randint(5, 100)
+width = randint(5, 100)
+depth = randint(5, 100)
 print('this box is {}cm tall, {}cm wide and {}cm thick. '
       'This means that the volume of the box is {}^3 cm.'.format(height, width, depth, box_volume(height, width, depth)))
