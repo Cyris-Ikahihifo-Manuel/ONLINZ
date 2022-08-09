@@ -1,6 +1,17 @@
-# importing random module to get random values
+# importing random module to get random values for test purposes
 
 from random import randint
+
+
+# box_volume function has three parameters h, w and d. These parameters are the abbreviation of the box's dimensions
+# this is so that the parameters are appropriately named to avoid confusion when other IT programmers in ONLINZ check my
+# coding for the program's box by multiplying the box's height, width and depth and then return that value. In the
+# complete program, the box's dimensions are collected from the customer who enters the box's dimensions.
+
+
+def box_volume(h, w, d):
+    return h * w * d
+
 
 # these two arrays, islands and base_multiplier have the same amount of items, each item in base_multiplier is the multiplier
 # for the item in islands with the same index. In island_for_return, the program should ask the user for where their
@@ -9,14 +20,43 @@ from random import randint
 islands = ['north island', 'south island', 'stewart island']
 base_multiplier = [1, 1.5, 2]
 
+# the cost variable is set to 0 because the base rate hasn't been determined yet from the volume of the box or
+# multiplying the base_rate on where they're wanting to return their product.
+
+cost = 0
+
+# the variables height, width and depth store the box's dimension, in the complete program the box's dimensions are
+# entered by the customer, but in this case the box's dimensions are randomised for test purposes. The print statement is
+# to check the box's dimensions and that the volume of the box is correctly calculated.
+
 height = randint(5, 100)
 width = randint(5, 100)
 depth = randint(5, 100)
 
-# the reiterative statement should go through all the items in list islands.
+volume = box_volume(height, width, depth)
+
+print('this box is {}cm tall, {}cm wide and {}cm thick. '
+      'This means that the volume of the box is {}^3 cm.'.format(height, width, depth, box_volume(height, width, depth)))
+
+# the conditional statement is to determine the base rate of the cost for later. If it goes as expected
+
+if volume <= 6000:
+    cost += 8
+elif 6000 > volume <= 100000:
+    cost += 12
+else:
+    cost += 15
+print('that\'ll be ${:.2f}'.format(cost))
+
+# the program asks the user for input on where they're from, the .strip() and .lower() since conditional statements are
+# case sensitive the reiterative statement should go through all the items in list islands and if the customer's location
+# is in the array islands then the cost should be multiplied based on where they're from and exit the reiterative
+# statement and finally it should display the new cost.
 
 answer = input('which island are you from?').strip().lower()
 
 for location in islands:
     if answer == location:
-        base_multiplier[islands.index(location)]
+        cost *= base_multiplier[islands.index(location)]
+        break
+print('that\'ll be ${:.2f}'.format(cost))
