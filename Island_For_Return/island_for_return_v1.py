@@ -47,7 +47,7 @@ cost = 0
 # the variables height, width and depth store the box's dimension, in the complete program the box's dimensions are
 # entered by the customer, but in this case the box's dimensions are randomised for test purposes. The print statement is
 # to check the box's dimensions and that the volume of the box is correctly calculated. In the complete program, the
-# box's dimensions are from inputs from the customer.
+# box's dimensions are from inputs from the customer. 
 
 height = randint(5, 100)
 width = randint(5, 100)
@@ -58,18 +58,7 @@ volume = box_volume(height, width, depth)
 print('this box is {}cm tall, {}cm wide and {}cm thick. '
       'This means that the volume of the box is {}^3 cm.'.format(height, width, depth, box_volume(height, width, depth)))
 
-# the conditional statement is to determine the base rate of the cost for later. If this goes as expected then the 
-# program should display that the cost is $8.00 if the volume is 6000cm^3 or less, display $12.00 if the volume of the
-# box is greater than 6,000cm^3 but less than or equal to 100,000cm^3 and display $15.00 if the volume of the box is
-# greater than 100,000cm^3
-
-if volume <= 6000:
-    cost += 8
-elif 100000 >= volume > 6000:
-    cost += 12
-else:
-    cost += 15
-print('that\'ll be ${:.2f}'.format(cost))
+cost = base_rates(volume, cost)
 
 # the program asks the user for input on where they're from, the .strip() and .lower() since conditionals are case
 # sensitive the conditional statement should go through all the items in list islands and if the customer's location
