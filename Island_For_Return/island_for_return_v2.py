@@ -39,18 +39,28 @@ volume = box_volume(height, width, depth)
 print('this box is {}cm tall, {}cm wide and {}cm thick. '
       'This means that the volume of the box is {}^3 cm.'.format(height, width, depth, box_volume(height, width, depth)))
 
-# the conditional statement is to determine the base rate of the cost for later. If this goes as expected then the
-# program should display that the cost is $8.00 if the volume is 6000cm^3 or less, display $12.00 if the volume of the
-# box is greater than 6,000cm^3 but less than or equal to 100,000cm^3 and display $15.00 if the volume of the box is
-# greater than 100,000cm^3
+# in base_rates_v3.py, the base_rates function uses both a reiterative statement, conditional statement and 2D list to
+# determine the cost of the base rates.T he parameters v and c are abbreviations of the intended variables volume and
+# cost in the complete program, they're abbreviated to avoid confusion if they were named the same as the global
+# variables. There's a reiterative statement combined with a conditional statement because the conditional statements was
+# not only inflexible but inefficient too because if ONLINZ added other base rates for other sizes than programmers
+# would've needed to code three more lines of code for each different base rate. The 2D list conditions has arrays
+# within it, the first two arrays store the minimum and maximum (in that order) values that the parameter v
+# has to be for it to execute the branch within the conditional statement. There's a third array in the 2D list
+# conditions, this array stores the cost the base rate of the box. In base_rates function, in the conditional statement
+# after parameter v has been put through the conditional statement, parameter c experiences an increment of the third
+# array corresponding with the same indexes of the two other arrays in the conditional statement, because of the
+# reiterative statement using the length of the array conditions[0] it should use all of the other values within the
+# other arrays. It should also return the parameter c after experiencing the increment if it goes as expected.
 
-if volume <= 6000:
-    cost += 8
-elif 100000 >= volume > 6000:
-    cost += 12
-else:
-    cost += 15
-print('that\'ll be ${:.2f}'.format(cost))
+
+def base_rates(v, c):
+    conditions = [[-float('inf'), 6000, 100000], [6000, 100000, float('inf')], [8, 12, 15]]
+    for i in range(len(conditions[0])):
+        if conditions[0][i] < v <= conditions[1][i]:
+            c += conditions[2][i]
+    return c
+
 
 # the program asks the user for input on where they're from, the .strip() and .lower() are used since conditional
 # statements are case sensitive the conditional statement should go through all the items in list islands and if the
@@ -59,7 +69,6 @@ print('that\'ll be ${:.2f}'.format(cost))
 # will be different in the complete program.
 
 answer = input('which island are you from?').strip().lower()
-
 
 if answer == islands[1]:
     cost *= base_multiplier[1]
