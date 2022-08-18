@@ -33,16 +33,18 @@ def base_rates(v, c):
     return c
 
 
-# these two arrays, islands and base_multiplier have the same amount of items, each item in base_multiplier is the multiplier
-# for the item in islands with the same index. In island_for_return, the program should ask the user for where their
-# location is and multiply the cost of their box based on where they're from.
+# The 2D list has 2 arrays, these arrays storing the same type of value, with islands_multi[0] storing only strings and
+# islands_multi[1]. This is to avoid confusion when storing the variables such as reiterating through one of the arrays
+# in the 2D list in the test plan. Each item’s index in islands_multi[0] corresponds with the item in islands_multi[1]
+# with the same index. Again, this is to avoid confusion when reiterating through the arrays and using their items.
 
 
-def islands(location):
-    locations = ['north island', 'south island', 'stewart island']
-    base_multiplier = [1, 1.5, 2]
-    base_multiplier[i]
-    for i in range(len(locations)):
+def islands(location, c):
+    islands_multi = [['north island', 'south island', 'stewart island'], [1, 1.5, 2]]
+    for i in range(len(islands_multi[0])):
+        if location == islands_multi[0][i]:
+            c *= islands_multi[1][i]
+    return c
 
 
 # the cost variable is set to 0 because the base rate hasn't been determined yet from the volume of the box or
@@ -73,3 +75,5 @@ cost = base_rates(volume, cost)
 # the complete program.
 
 answer = input('which island are you from?').strip().lower()
+islands(answer, cost)
+print('that\'ll be ${:.2f}'.format(cost))
