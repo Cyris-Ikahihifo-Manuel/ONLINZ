@@ -38,14 +38,7 @@ def base_rates(v, c):
 # in the 2D list in the test plan. Each item’s index in islands_multi[0] corresponds with the item in islands_multi[1]
 # with the same index. Again, this is to avoid confusion when reiterating through the arrays and using their items.
 
-
-def islands(location, c):
-    islands_multi = [['north island', 'south island', 'stewart island'], [1, 1.5, 2]]
-    for i in range(len(islands_multi[0])):
-        if location == islands_multi[0][i]:
-            c *= islands_multi[1][i]
-    return c
-
+islands_multi = [['north island', 'south island', 'stewart island'], [1, 1.5, 2]]
 
 # the cost variable is set to 0 because the base rate hasn't been determined yet from the volume of the box or
 # multiplying the base_rate on where they're wanting to return their product.
@@ -75,5 +68,7 @@ cost = base_rates(volume, cost)
 # the complete program.
 
 answer = input('which island are you from?').strip().lower()
-islands(answer, cost)
+for island in range(len(islands_multi[0])):
+    if answer == islands_multi[0][island]:
+        cost *= islands_multi[1][island]
 print('that\'ll be ${:.2f}'.format(cost))
