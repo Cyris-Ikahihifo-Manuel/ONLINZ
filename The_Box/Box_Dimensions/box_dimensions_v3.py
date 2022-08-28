@@ -9,12 +9,15 @@
 def box_dimension(dimension):
     while True:
         try:
+            print()
             answer = int(input('enter your box\'s {} in cm'.format(dimension)))
             if 5 <= answer <= 100:
                 return answer
             else:
+                print()
                 print('error, the box\'s {} must be entered a whole number between 5 to 100'.format(dimension))
         except ValueError:
+            print()
             print('error, the box\'s {} must be entered in whole numbers'.format(dimension))
 
 

@@ -5,6 +5,7 @@
 
 
 def box_dimension(message):
+    print()
     answer = int(input(message))
     if 5 <= answer <= 100:
         return answer
