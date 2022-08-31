@@ -7,17 +7,14 @@
 
 def box_dimension(message, error_message):
     while True:
-        try:
-            print()
-            answer = int(input(message))
-            if 5 <= answer <= 100:
-                return answer
-            else:
-                print()
-                print(error_message)
-        except ValueError:
+        print()
+        answer = int(input(message))
+        if 5 <= answer <= 100:
+            return answer
+        else:
             print()
             print(error_message)
+
 
 
 # the box_dimension function being tested
