@@ -1,4 +1,4 @@
-# he details function reiterates itself until the customer has input an answer other than an empty string. The function
+# the details function reiterates itself until the customer has input an answer other than an empty string. The function
 # first asks the customer through an input statement, addressing them with the noun and subject parameter for context.
 # It should then return the customer's answer for use later in the program or for ONLINZ's business such as contacting
 # their customers on issues, or asking the customer for an answer with their name.

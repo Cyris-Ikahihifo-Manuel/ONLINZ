@@ -2,7 +2,6 @@
 
 from random import randint
 
-
 # box_volume function has three parameters h, w and d. These parameters are the abbreviation of the box's dimensions
 # this is so that the parameters are appropriately named to avoid confusion when other IT programmers in ONLINZ check my
 # coding for the program's box by multiplying the box's height, width and depth and then return that value. In the

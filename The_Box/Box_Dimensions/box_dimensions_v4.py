@@ -1,3 +1,22 @@
+# the details function reiterates itself until the customer has input an answer other than an empty string. The function
+# first asks the customer through an input statement, addressing them with the noun and subject parameter for context.
+# It should then return the customer's answer for use later in the program or for ONLINZ's business such as contacting
+# their customers on issues, or asking the customer for an answer with their name.
+
+
+def details(noun, subject):
+    while True:
+        answer = input(noun + ', please enter your ' + subject)
+        if len(answer) == 0:
+            print('error, your answer can\'t be blank')
+        else:
+            return answer
+
+
+# this should test the details function
+
+first_name = details('please', 'first name')
+
 # box_dimension function 4.0 is more aesthetically pleasing than box_dimensions 3.0, printing spaces between asking
 # for input and displaying output, box_dimension 4.0 should still display the dimension parameter formatted in the
 # statement "enter your box's {} in cm". The function should also still shouldn't crash for invalid values such as
