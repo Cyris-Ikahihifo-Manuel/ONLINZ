@@ -54,11 +54,10 @@ width = randint(5, 100)
 depth = randint(5, 100)
 
 volume = box_volume(height, width, depth)
+cost = base_rates(volume, cost)
 
 print('this box is {}cm tall, {}cm wide and {}cm thick. '
-      'This means that the volume of the box is {}^3 cm.'.format(height, width, depth, box_volume(height, width, depth)))
-
-cost = base_rates(volume, cost)
+      'This means that the volume of the box is {}^3 cm. So the cost is ${:.2f}'.format(height, width, depth, box_volume(height, width, depth), cost))
 
 # the program asks the user for input on where they're from, the .strip() and .lower() since conditionals are case
 # sensitive the conditional statement should go through all the items in list islands and if the customer's location

@@ -48,7 +48,6 @@ def box_volume(h, w, d):
 def base_rates(v, c):
     conditions = [[-float('inf'), 6000, 100000], [6000, 100000, float('inf')], [8, 12, 15]]
     for i in range(len(conditions[0])):
-        print('{}, {} and {}'.format(conditions[0][i], conditions[1][i], conditions[2][i]))
         if conditions[0][i] < v <= conditions[1][i]:
             c += conditions[2][i]
     return c
@@ -127,13 +126,13 @@ depth = box_dimension(first_name, 'depth')
 volume = box_volume(height, width, depth)
 text('{}cm x {}cm x {}cm = {}cm^3'.format(height, width, depth, volume))
 
-base_rates(volume, cost)
-decorations('The box\'s volume is {} cm^3 so the base rate is {:.2f}'.format(volume, cost), '~')
+cost = base_rates(volume, cost)
+decorations('The box\'s volume is {} cm^3 so the base rate is ${:.2f}'.format(volume, cost), '~')
 
 
 not_finished = True
 while not_finished:
-    decorations('Locations in New Zealand', '')
+    decorations('Locations in New Zealand', '~')
     print()
     for island in islands_multi.keys():
         print(island.capitalize())
@@ -144,4 +143,4 @@ while not_finished:
             not_finished = False
 
 
-decorations('The cost should now be {}'.format(cost), '~')
+decorations('The cost should now be ${:.2f}'.format(cost), '-')
