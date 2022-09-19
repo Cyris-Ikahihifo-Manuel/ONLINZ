@@ -64,7 +64,7 @@ def details(noun, subject):
         print()
         answer = input(noun + ', enter your ' + subject)
         if len(answer) == 0:
-            text(decorations('Error, {} can\'t be blank'.format(noun), '!'))
+            decorations('Error, your {} can\'t be blank.'.format(subject), '!')
         else:
             return answer
 
@@ -82,7 +82,7 @@ def int_details(noun, subject):
             answer = int(input(noun + ', enter your ' + subject))
             return answer
         except ValueError:
-            decorations('Error, {} must be entered in whole numbers.'.format(subject), '!')
+            decorations('Error, your {} must be entered in whole numbers.'.format(subject), '!')
 
 
 # box_dimension function 4.0 is more aesthetically pleasing than box_dimensions 3.0, printing spaces between asking
@@ -103,44 +103,45 @@ def box_dimension(noun, dimension):
             if 5 <= answer <= 100:
                 return answer
             else:
-                decorations('Error, the box\'s {} must be a whole number between 5 and 100 cm, {}'.format(dimension, noun), '!')
+                decorations('Error, the box\'s {} must between 5 and 100 cm, {}'.format(dimension, noun), '!')
         except ValueError:
-            decorations('Error, the box\'s {} must be entered in whole numbers, {}'.format(dimension, noun), '!')
+            decorations('Error, the box\'s {} must be entered to the nearest cm, {}'.format(dimension, noun), '!')
 
-
-# this should test the details function
 
 islands_multi = {'north island': 1, 'south island': 1.5, 'stewart island': 2}
 
 cost = 0
 
-first_name = details('Please', 'first name').capitalize()
-surname = details(first_name, 'surname')
-address = details(first_name, 'address')
-phone_no = int_details(first_name, 'phone number')
+# this should test the details function in the functions
 
-height = box_dimension(first_name, 'height')
-width = box_dimension(first_name, 'width')
-depth = box_dimension(first_name, 'depth')
+contacts = []
+while True:
+    first_name = details('please', 'first name').capitalize()
+    surname = details(first_name, 'surname').capitalize()
+    address = details(first_name, 'address')
+    phone_no = int_details(first_name, 'phone number')
 
-volume = box_volume(height, width, depth)
-text('{}cm x {}cm x {}cm = {}cm^3'.format(height, width, depth, volume))
+    height = box_dimension(first_name, 'height')
+    width = box_dimension(first_name, 'width')
+    depth = box_dimension(first_name, 'depth')
 
-cost = base_rates(volume, cost)
-decorations('The box\'s volume is {} cm^3 so the base rate is ${:.2f}'.format(volume, cost), '~')
+    volume = box_volume(height, width, depth)
+    text('{}cm x {}cm x {}cm = {}cm^3'.format(height, width, depth, volume))
 
+    cost = base_rates(volume, cost)
+    decorations('The box\'s volume is {} cm^3 so the base rate will ${:.2f}, {}'.format(volume, cost, first_name), '~')
 
-not_finished = True
-while not_finished:
-    decorations('Locations in New Zealand', '~')
-    print()
-    for island in islands_multi.keys():
-        print(island.capitalize())
-    location = details(first_name, 'island')
-    for island in islands_multi.keys():
-        if location == island:
-            cost *= islands_multi[island]
-            not_finished = False
+    not_finished = True
+    while not_finished:
+        decorations('Locations in New Zealand', '~')
+        print()
+        for island in islands_multi.keys():
+            print(island.capitalize())
+        location = details(first_name, 'island')
+        for island in islands_multi.keys():
+            if location == island:
+                cost *= islands_multi[island]
+                not_finished = False
 
-
-decorations('The cost should now be ${:.2f}'.format(cost), '-')
+    decorations('The cost should now be ${:.2f}'.format(cost), '-')
+    contacts.append([first_name, surname, address, phone_no, volume, cost, location])
