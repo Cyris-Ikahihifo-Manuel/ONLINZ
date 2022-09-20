@@ -105,7 +105,7 @@ def box_dimension(noun, dimension):
             else:
                 decorations('Error, the box\'s {} must between 5 and 100 cm, {}'.format(dimension, noun), '!')
         except ValueError:
-            decorations('Error, the box\'s {} must be entered to the nearest cm, {}'.format(dimension, noun), '!')
+            decorations('Error, the box\'s {} must be entered in whole numbers, {}'.format(dimension, noun), '!')
 
 
 islands_multi = {'north island': 1, 'south island': 1.5, 'stewart island': 2}
@@ -137,11 +137,11 @@ while True:
         print()
         for island in islands_multi.keys():
             print(island.capitalize())
-        location = details(first_name, 'island')
+        location = details(first_name, 'location')
         for island in islands_multi.keys():
             if location == island:
                 cost *= islands_multi[island]
                 not_finished = False
 
-    decorations('The cost should now be ${:.2f}'.format(cost), '-')
+    decorations('Based on your location, that\'ll be ${:.2f}, {}'.format(cost, first_name), '-')
     contacts.append([first_name, surname, address, phone_no, volume, cost, location])
